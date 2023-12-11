@@ -5,6 +5,9 @@
 
 return {
   'neovim/nvim-lspconfig',
+  opts = {
+    inlay_hints = {enabled = true},
+  },
   config = function()
     -- Switch for controlling whether you want autoformatting.
     --  Use :KickstartFormatToggle to toggle autoformatting on or off

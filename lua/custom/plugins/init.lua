@@ -25,4 +25,3 @@ vim.opt.smartindent = true
 vim.opt.swapfile = false
 vim.o.scrolloff = 999
 return{}
- 
