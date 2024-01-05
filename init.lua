@@ -88,13 +88,12 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
   },
-
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -113,7 +112,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -266,7 +265,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-   { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -322,6 +321,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
@@ -416,6 +416,15 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+vim.keymap.set('n', '<leader>pws', function()
+  local word = vim.fn.expand('<cword>')
+  require('telescope.builtin').grep_string({search = word});
+end)
+vim.keymap.set('n', '<leader>pWs', function()
+  local word = vim.fn.expand('<cWORD>')
+  require('telescope.builtin').grep_string({search = word});
+end)
+
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -473,15 +482,15 @@ vim.defer_fn(function()
           ['[]'] = '@class.outer',
         },
       },
---      swap = {
---        enable = true,
---        swap_next = {
---          ['<leader>a'] = '@parameter.inner',
---        },
---        swap_previous = {
---          ['<leader>A'] = '@parameter.inner',
---        },
---      },
+      --      swap = {
+      --        enable = true,
+      --        swap_next = {
+      --          ['<leader>a'] = '@parameter.inner',
+      --        },
+      --        swap_previous = {
+      --          ['<leader>A'] = '@parameter.inner',
+      --        },
+      --      },
     },
   }
 end, 0)
@@ -567,7 +576,7 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
+  tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
@@ -656,6 +665,9 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+--DO 
+--DO.NO
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
