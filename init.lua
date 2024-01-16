@@ -350,7 +350,7 @@ require('telescope').setup {
   },
 }
 
--- Enable telescope fzf native, if installed
+-- Enable telescope fzf native, if installedpicker
 pcall(require('telescope').load_extension, 'fzf')
 
 -- Telescope live_grep in git root
@@ -577,6 +577,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
+  intelephense = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {

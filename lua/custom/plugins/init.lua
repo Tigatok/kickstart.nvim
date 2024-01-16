@@ -28,6 +28,14 @@ vim.opt.swapfile = false
 vim.o.scrolloff = 999
 
 return{
+  {'laytan/cloak.nvim', 
+
+    config = function ()
+      require('cloak').setup({
+        enabled = true
+      })
+    end
+  },
   {
     "github/copilot.vim",
     config = function ()
