@@ -70,6 +70,24 @@ return{
         require('trouble').previous({jump = true, skip_groups = true})end,
         {desc="Trouble Previous"})
     end
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    config = function ()
+      local telescope = require("telescope");
+      telescope.setup({
+        pickers = {
+          find_files = {
+            find_command = {
+              'rg',
+              '--files',
+              '--hidden',
+              '--glob',
+              '!**/.git/*',
+            }
+          }
+        }
+      })
+    end
   }
-
 }
