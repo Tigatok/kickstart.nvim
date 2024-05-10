@@ -27,6 +27,14 @@ vim.opt.smartindent = true
 vim.opt.swapfile = false
 vim.o.scrolloff = 999
 
+
+vim.filetype.add({
+  extension = {
+    mdx = 'tsx'
+  }
+})
+vim.treesitter.language.register('mdx', 'markdown')
+
 return{
   {'laytan/cloak.nvim', 
 

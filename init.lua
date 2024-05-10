@@ -72,6 +72,7 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'tpope/vim-markdown',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -565,7 +566,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
-  intelephense = {},
+  -- intelephense = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
