@@ -566,6 +566,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
+  eslint = {},
   -- intelephense = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
