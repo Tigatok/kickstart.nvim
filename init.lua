@@ -599,7 +599,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   --ts_ls = {},
-  tsserver = {},
+  ts_ls = {},
   -- intelephense = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
