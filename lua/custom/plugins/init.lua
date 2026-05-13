@@ -32,6 +32,17 @@ vim.opt.swapfile = false
 vim.o.scrolloff = 999
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 
+vim.keymap.set('n', '<leader>pa', function()
+  vim.fn.setreg('+', vim.fn.expand '%:p')
+  print('Copied absolute path: ' .. vim.fn.expand '%:p')
+end, { desc = 'Copy absolute file path' })
+
+-- Copy relative path
+vim.keymap.set('n', '<leader>pr', function()
+  vim.fn.setreg('+', vim.fn.expand '%:.')
+  print('Copied relative path: ' .. vim.fn.expand '%:.')
+end, { desc = 'Copy relative file path' })
+
 return {
   {
     'laytan/cloak.nvim',
